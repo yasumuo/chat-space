@@ -1,1 +1,17 @@
-%h2 Hello Haml!!
+.sidebar
+  .user
+    %h1.user__name Sample User
+    .user__icons
+      = link_to "#", class: "edit" do
+        %i.fa.fa-edit
+      = link_to "#", class: "cog" do
+        %i.fa.fa-cog
+  .group
+    %h2.group__name サンプル
+    %p.group__new よろしくお願いします
+  .group
+    %h2.group__name サンプル2
+    %p.group__new テストテスト
+  .group
+    %h2.group__name sampleグループ
+    %p.group__new まだメッセージはありません

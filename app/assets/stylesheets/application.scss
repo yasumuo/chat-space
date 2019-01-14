@@ -1,0 +1,53 @@
+@import "./reset";
+@import "./variable";
+@import "font-awesome";
+
+.sidebar {
+  background: $side-back;
+  height: 100vh;  /*  後で消す  */
+  width: 300px;
+  padding: 35px 20px 0;
+  box-sizing: border-box;
+}
+
+.user {
+  padding-bottom: 30px;
+  &__name {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: $white-color;
+  }
+
+  &__icons {
+    float: right;
+    a {
+      text-decoration: none;
+      color: $white-color;
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.group {
+  &__name {
+    font-size: 15px;
+    color: $white-color;
+    padding: 20px 0 5px 0;
+  }
+
+  &__new {
+    font-size: 11px;
+    color: $white-color;
+    padding-bottom: 40px;
+  }
+}
+
