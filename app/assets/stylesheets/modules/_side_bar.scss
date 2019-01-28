@@ -1,0 +1,56 @@
+.sidebar {
+  float: left;
+  background: $side-back;
+  height: 100vh;  /*  後で消す  */
+  width: 300px;
+  /*padding: 35px 20px 0;*/
+  box-sizing: border-box;
+}
+
+.user {
+  height: 45px;
+  padding: 35px 20px;
+  line-height: 45px;
+  background-color: $side-user-back;
+  &__name {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: $white-color;
+  }
+
+  &__icons {
+    float: right;
+    a {
+      text-decoration: none;
+      color: $white-color;
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @include clearfix;
+/*
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }*/
+}
+
+.group {
+  padding: 20px 20px 40px;
+  &__name {
+    font-size: 15px;
+    color: $white-color;
+    margin-bottom: 5px;
+    /*padding: 20px 0 5px 0;*/
+  }
+
+  &__new {
+    font-size: 11px;
+    color: $white-color;
+    /*padding-bottom: 40px;*/
+  }
+}
