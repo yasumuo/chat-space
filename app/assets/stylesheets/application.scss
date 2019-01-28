@@ -4,14 +4,15 @@
 @import "./mixins/mixin";
 @import "./modules/side_bar";
 @import "./modules/chat";
+@import "./modules/flash";
 
 @import "font-awesome";
 
 // フラッシュメッセージ
-.result {
-  width: 100%;
-  color: #fff;
-  padding: 5px;
-  background-color: #38AEF0;
-  text-align: center;
-}
+// .result {
+//   width: 100%;
+//   color: #fff;
+//   padding: 5px;
+//   background-color: #38AEF0;
+//   text-align: center;
+// }
