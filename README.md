@@ -4,7 +4,7 @@
 * usersテーブル
 * groupsテーブル
 * messagesテーブル
-* group_usersテーブル
+* membersテーブル
 
 ## usersテーブル
 
@@ -14,9 +14,9 @@
 |mail|string|null: false, unique: true|
 
 ### Association
-- has_many :groups, through: group_users
+- has_many :groups, through: members
 - has_many :messages
-- has_many :group_users
+- has_many :members
 
 ## groupsテーブル
 
@@ -25,10 +25,9 @@
 |name|string|index: true, null: false, unique: true|
 
 ### Association
-- has_many :users, through: group_users
-- has_many :group_users
+- has_many :users, through: members
+- has_many :members
 - has_many :messages
-- validates :name, presence: true
 
 ## messagesテーブル
 
@@ -43,7 +42,7 @@
 - belongs_to :user
 - belongs_to :group
 
-## group_userテーブル
+## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
