@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      group: グループ
+    attributes:
+      group:
+        name: グループ名
