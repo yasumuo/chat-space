@@ -11,22 +11,24 @@
       %i Sample_User
   .main
     .main__message-list
-      .main__message
-        .main__message__name Sample_User
-        .main__message__time 2019/01/15 12:00:00
-        .main__message__text テストメッセージ
-      .main__message
-        .main__message__name Sample_User
-        .main__message__time 2019/01/15 12:00:00
-        .main__message__text テストメッセージ
-      .main__message
-        .main__message__name Sample_User
-        .main__message__time 2019/01/15 12:00:00
-        .main__message__text テストメッセージ
-      .main__message
-        .main__message__name Sample_User
-        .main__message__time 2019/01/15 12:00:00
-        .main__message__text テストメッセージ
+      = render partial: 'message', collection: @messages
+
+      / .main__message
+      /   .main__message__name Sample_User
+      /   .main__message__time 2019/01/15 12:00:00
+      /   .main__message__text テストメッセージ
+      / .main__message
+      /   .main__message__name Sample_User
+      /   .main__message__time 2019/01/15 12:00:00
+      /   .main__message__text テストメッセージ
+      / .main__message
+      /   .main__message__name Sample_User
+      /   .main__message__time 2019/01/15 12:00:00
+      /   .main__message__text テストメッセージ
+      / .main__message
+      /   .main__message__name Sample_User
+      /   .main__message__time 2019/01/15 12:00:00
+      /   .main__message__text テストメッセージ
   .main__footer
     = form_for [@group, @message], html: {class: "main__footer-form"} do |f|
       .main__footer-body
