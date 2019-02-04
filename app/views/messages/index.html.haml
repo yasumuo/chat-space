@@ -8,7 +8,8 @@
       = link_to "Edit", edit_group_path(params[:group_id]), class: "header-group__edit-btn"
     .header-group-members
       MEMBER:
-      %i Sample_User
+      - @members.each do |member|
+        %i #{member.name}　
   .main
     .main__message-list
       = render partial: 'message', collection: @messages

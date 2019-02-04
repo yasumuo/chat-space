@@ -11,7 +11,7 @@
     = link_to group_messages_path(group) do
       .group
         %h2.group__name= group.name
-        %p.group__new メッセージはまだありません。
+        %p.group__new= group.show_last_message
 
   / .group
   /   %h2.group__name サンプル2
