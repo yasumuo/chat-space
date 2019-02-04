@@ -28,10 +28,18 @@
         .main__message__time 2019/01/15 12:00:00
         .main__message__text テストメッセージ
   .main__footer
-    %form.main__footer-form
+    = form_for [@group, @message], html: {class: "main__footer-form"} do |f|
       .main__footer-body
-        %input.message{type: "text", placeholder: "type a message", name: "message[body]"}
-        %label.chat-file{for: "message_image"}
-          %input.image{type: "file", id: "message_image", name: "message[image]"}
+        = f.text_field :content, placeholder: "type a message", class: "message"
+        = f.label :image, class: "chat-file" do
+          = f.file_field :image
           %i.fa.fa-picture-o
-      %input.submit{type: "submit", value: "Send"}
+      = f.submit "Send", class: "submit"
+
+    / %form.main__footer-form
+    /   .main__footer-body
+    /     %input.message{type: "text", placeholder: "type a message", name: "message[body]"}
+    /     %label.chat-file{for: "message_image"}
+    /       %input.image{type: "file", id: "message_image", name: "message[image]"}
+    /       %i.fa.fa-picture-o
+    /   %input.submit{type: "submit", value: "Send"}
