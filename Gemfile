@@ -50,12 +50,14 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'rspec'
   gem 'pry-rails'
 end
 
 group :test do
-  gem 'rspec'
+  gem 'faker'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :production do
