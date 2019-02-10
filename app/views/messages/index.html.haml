@@ -4,12 +4,12 @@
 .chat-main
   .header
     .header-group
-      .header-group__name sampleグループ
+      .header-group__name= @group.name
       = link_to "Edit", edit_group_path(params[:group_id]), class: "header-group__edit-btn"
     .header-group-members
       MEMBER:
       - @members.each do |member|
-        %i #{member.name}　
+        %i #{member.name}
   .main
     .main__message-list
       = render partial: 'message', collection: @messages

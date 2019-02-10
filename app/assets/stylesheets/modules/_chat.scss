@@ -84,8 +84,13 @@
     }
 
     &__image {
-      width: 50%;
+      width: 100%;
       margin-bottom: 20px;
+
+      & img {
+        width: 80%;
+
+      }
     }
   }
 
