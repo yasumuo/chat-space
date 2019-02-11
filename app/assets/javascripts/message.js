@@ -19,13 +19,13 @@ $(function() {
                                 </div>` : "";
     let html = `<div class="main__message">
                   <div class="main__message__name">${message.user_name}</div>
-                  <div class="main__message__time">${getFormatDate(message.created_at)}</div>
+                  <div class="main__message__time">${message.created_at}</div>
                   ${content}
                   ${img}
                 </div>`;
     return html;
   }
-  //console.log("read!!");
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var data = new FormData(this);
@@ -40,7 +40,6 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      //console.log('posted ok!');
       let html = buildHTML(data);
       $('.main__message-list').append(html);
       // messageがある箇所をスクロール
@@ -49,8 +48,7 @@ $(function() {
     .fail(function(e) {
       alert('投稿に失敗しました');
     });
-    $('.message').val('');
-    $('#message_image').val('');
+    $(this)[0].reset();
 
     return false;
   });
