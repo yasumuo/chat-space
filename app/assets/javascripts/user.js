@@ -1,4 +1,5 @@
 $(function() {
+
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
@@ -14,30 +15,56 @@ $(function() {
     $('#user-search-result').append(html);
   }
 
-  $('#user-search-field').on('keyup', function() {
-    console.log($(this).val());
-    var input = $(this).val();
+  // チャットメンバーに追加するHTMLを作成
+  function buildHTML(id, name) {
+    var html = `<div class="chat-group-user clearfix js-chat-member" id="group-user-${id}">
+                  <input name="group[user_ids][]" type="hidden" value="${id}">
+                  <p class="chat-group-user__name">${name}</p>
+                  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+                </div>`;
+    return html;
+  }
 
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { name: input },
-      dataType: 'json'
-    })
-    .done(function(users) {
-      console.log('ok');
-      console.log(users);
+  // チャットメンバー一覧に表示された「削除」ボタンクリック時のイベント
+  $('#chat-group-users').on('click', '.user-search-remove', function() {
+    var userId = $(this).attr('data-user-id');
+
+    // ユーザー一覧から除外
+    $('#group-user-' + userId).remove();
+  })
+
+  // 検索結果で表示された「追加」ボタンクリック時のイベント
+  $('#user-search-result').on('click', '.user-search-add', function() {
+    var userId = $(this).attr('data-user-id');
+    var userName = $(this).attr('data-user-name');
+    $('#chat-group-users').append(buildHTML(userId, userName));
+    $(this).parent().remove();
+  });
+
+  $('#user-search-field').on('change keyup', function() {
+    var input = $(this).val();
+    if (input.length > 0) {
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { name: input },
+        dataType: 'json'
+      })
+      .done(function(users) {
+        $('#user-search-result').empty();
+        if (users.length !== 0) {
+          users.forEach(function(user) {
+            appendUser(user);
+          });
+        } else {
+          appendNoUser("該当するユーザーはいません");
+        }
+      })
+      .fail(function() {
+        alert('ユーザーの検索に失敗しました');
+      });
+    } else {
       $('#user-search-result').empty();
-      if (users.length !== 0) {
-        users.forEach(function(user) {
-          appendUser(user);
-        });
-      } else {
-        appendNoUser("該当するユーザーはいません");
-      }
-    })
-    .fail(function() {
-      alert('ユーザーの検索に失敗しました');
-    });
+    }
   });
 });
