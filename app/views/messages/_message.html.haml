@@ -1,4 +1,4 @@
-.main__message
+.main__message{"data-id": "#{message.id}"}
   .main__message__name= message.user.name
   .main__message__time= message.created_at.to_s
 - if message.content.present?
