@@ -13,5 +13,6 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'upload-yasu-chat'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/upload-yasu-chat'
+  #config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/upload-yasu-chat'
+  config.asset_host = 'https://upload-yasu-chat.s3-ap-northeast-1.amazonaws.com'
 end
