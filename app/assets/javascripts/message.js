@@ -68,7 +68,6 @@ $(function() {
     })
     .done(function(data) {
       let html = buildHTML(data);
-      console.log('返ってきたデータ', data);
       $('.main__message-list').append(html);
       // messageがある箇所をスクロール
       scroll();
