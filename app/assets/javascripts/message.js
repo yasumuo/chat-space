@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(message) {
     let content = message.content ? `<div class="main__message__text">${message.content}</div>` : "";
-    let img = message.image.url ? `<div class="main__message__image">
+    let img = message.image ? `<div class="main__message__image">
                                 <img src="${message.image}">
                                 </div>` : "";
     let html = `<div class="main__message" data-id="${message.id}">
@@ -68,6 +68,7 @@ $(function() {
     })
     .done(function(data) {
       let html = buildHTML(data);
+      console.log('返ってきたデータ', data);
       $('.main__message-list').append(html);
       // messageがある箇所をスクロール
       scroll();
