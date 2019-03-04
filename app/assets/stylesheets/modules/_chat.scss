@@ -53,6 +53,7 @@
   height: calc(100vh - 115px - 90px);
   overflow: scroll;
   /*padding: 0 40px;*/
+  padding-bottom: 5px;
   background-color: #AAAAAA;
 
   &__message-list {
@@ -95,8 +96,10 @@
   }
 
   &__footer {
+    position: absolute;
+    bottom: 0;
     height: 90px;
-    width: 100%;
+    width: calc(100vw - 300px);
     background-color: #434A54;
   }
 
