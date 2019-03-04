@@ -18,3 +18,5 @@
 
 # 画像は無視
 public/uploads/*
+
+config/secrets.yml
